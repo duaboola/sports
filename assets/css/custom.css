@@ -864,7 +864,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #15568C;}
   }
 }
 
-@media (max-width: 767px) {
+/* For screens between 391px and 767px */
+@media (min-width: 391px) and (max-width: 767px) {
   .service {
       padding: 10px 0; 
       min-height: 1800px; 
@@ -872,10 +873,11 @@ nav.navbar.bootsnav .navbar-toggle i{color: #15568C;}
   }
 }
 
-@media (max-width: 996px) {
+/* For screens between 768px and 996px */
+@media (min-width: 768px) and (max-width: 996px) {
   .service {
       padding: 0px 0; 
-      min-height: 2600px;
+      min-height: 2600px; 
       background-position: center; 
   }
 }
