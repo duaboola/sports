@@ -1,20 +1,7 @@
 $(document).ready(function(){
 	"use strict";
     
-        /*==================================
-* Author        : "ThemeSine"
-* Template Name : CarVilla HTML Template
-* Version       : 1.0
-==================================== */
 
-
-
-
-/*=========== TABLE OF CONTENTS ===========
-1. Scroll To Top
-2. welcome animation support
-3. owl carousel
-======================================*/
 
     // 1. Scroll To Top 
 		$(window).on('scroll',function () {
@@ -98,7 +85,7 @@ $(document).ready(function(){
 			});
 
 			
-
+			
 
 			
 				// // Refresh the carousel on tab change
@@ -184,9 +171,38 @@ $(document).ready(function(){
 				// 	$('#option1-tab').trigger('click');
 				// });
 				
+
+
+				let lastScrollTop = 0;
+				const hero = document.querySelector('.welcome-hero');
+				let backgroundOffset = 0; // Tracks the background offset position
+
+				function updateBackgroundPosition() {
+					// Apply the calculated background offset
+					hero.style.backgroundPositionY = `${backgroundOffset}px`;
+					requestAnimationFrame(updateBackgroundPosition); // Continuously update for smooth effect
+				}
+
+				// Event listener for scroll actions
+				window.addEventListener('scroll', () => {
+					let scrollTop = window.scrollY;
+
+					if (scrollTop > lastScrollTop) {
+						// Scrolling down: incrementally move the background downwards
+						backgroundOffset = scrollTop * 0.5; // Adjust the factor to control scroll speed
+					} else {
+						// Scrolling up: move back up, smoothly returning to the original position
+						backgroundOffset = Math.max(0, backgroundOffset - (lastScrollTop - scrollTop) * 0.5);
+					}
+
+					lastScrollTop = scrollTop;
+				});
+
+				// Initialize the background update loop
+				requestAnimationFrame(updateBackgroundPosition);
+
 				
-				
-				
-				
+
+		
 
 });
